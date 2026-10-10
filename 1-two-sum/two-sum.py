@@ -1,11 +1,8 @@
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_dct = {}
-
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        num_map = {}
         for i, num in enumerate(nums):
-            complement = target - num
-            if complement in num_dct:
-                return [num_dct[complement], i]
-            num_dct[num] = i 
-
-        
+            if target - num in num_map:
+                return [num_map[target - num], i]
+            elif num not in num_map:
+                num_map[num] = i
