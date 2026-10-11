@@ -1,10 +1,11 @@
 from collections import Counter
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        res = {}
+        res = set()
         for num in nums:
-            if num not in res:
-                res[num] = 1
-            else:
+            if num in res:
                 return True
+            else:
+                res.add(num)
+        
         return False
