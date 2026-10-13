@@ -2,9 +2,8 @@ class Solution:
     def minEatingSpeed(self, piles: list[int], h: int) -> int:
         right = max(piles)
         left = 1
-        res = 0
 
-        while left <= right:
+        while left < right:
             k = (right + left) // 2
             total = 0
             for pile in piles:
@@ -13,9 +12,8 @@ class Solution:
                     total += 1
 
             if total <= h:
-                res = k
-                right = k-1
+                right = k
             else:
                 left = k+1
         
-        return res
+        return right
