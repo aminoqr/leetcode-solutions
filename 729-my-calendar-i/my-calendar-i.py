@@ -5,30 +5,30 @@ class Tree:
         self.start = start
         self.end = end
     
-    def insert(self, start, end):
-        cur = self
+    def insert(self, startTime, endTime):
+        curr = self
         while True:
-            if start >= cur.end:
-                if not cur.right:
-                    cur.right = Tree(start, end)
+            if startTime >= curr.end:
+                if not curr.right:
+                    curr.right = Tree(startTime, endTime)
                     return True
-                cur = cur.right
-            elif end <= cur.start:
-                if not cur.left:
-                    cur.left = Tree(start, end)
+                curr = curr.right
+            elif endTime <= curr.start:
+                if not curr.left:
+                    curr.left = Tree(startTime, endTime)
                     return True
-                cur = cur.left
+                curr = curr.left
             else:
                 return False
-    
+
+
 
 class MyCalendar:
-
     def __init__(self):
-        self.root = []
+        self.root = None
 
     def book(self, startTime: int, endTime: int) -> bool:
-        if not self.root:
+        if self.root is None:
             self.root = Tree(startTime, endTime)
             return True
         
