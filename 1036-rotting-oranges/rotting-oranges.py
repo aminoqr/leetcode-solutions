@@ -18,7 +18,7 @@ class Solution:
         if fresh_count == 0:
             return 0
 
-        def rot_next(row, col, grid, queue):
+        def rot_next(row, col):
             nonlocal fresh_count
             if row + 1 < row_len:
                 if grid[row+1][col] == 1:
@@ -47,7 +47,7 @@ class Solution:
 
             for i in range(new_rotten_count):
                 row, col = queue.popleft()
-                rot_next(row, col, grid, queue)
+                rot_next(row, col)
             
             days += 1
         
