@@ -7,10 +7,15 @@
 class Solution:
     def kthSmallest(self, root: TreeNode | None, k: int) -> int:
         listt = []
+        count = 0
         def process(node):
+            nonlocal count
             if node.left:
                 process(node.left)
             listt.append(node.val)
+            count+=1
+            if count == k:
+                return
             if node.right:
                 process(node.right)
         
