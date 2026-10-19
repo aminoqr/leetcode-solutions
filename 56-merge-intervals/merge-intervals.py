@@ -2,6 +2,7 @@ class Solution:
     def merge(self, intervals: list[list[int]]) -> list[list[int]]:
         intervals.sort()
         ans = []
+
         for inter in intervals:
             if not ans:
                 ans.append(inter)
@@ -11,7 +12,5 @@ class Solution:
                         ans[-1][1] = inter[1]
                 else:
                     ans.append(inter)
-                    
         
         return ans
-        
