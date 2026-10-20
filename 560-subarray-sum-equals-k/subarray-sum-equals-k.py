@@ -6,7 +6,6 @@ class Solution:
 
         for num in nums:
             prefix_sum += num
-
             if prefix_sum-k in hash_map:
                 ans += hash_map[prefix_sum - k]
             
@@ -14,5 +13,5 @@ class Solution:
                 hash_map[prefix_sum] += 1
             else:
                 hash_map[prefix_sum] = 1
-        
+
         return ans
