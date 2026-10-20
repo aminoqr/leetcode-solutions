@@ -7,7 +7,7 @@ class Solution:
 
         for r in range(n):
             while s[r] in sett:
-                sett.remove(s[l])
+                sett.discard(s[l])
                 l += 1
             
             length = r - l + 1
