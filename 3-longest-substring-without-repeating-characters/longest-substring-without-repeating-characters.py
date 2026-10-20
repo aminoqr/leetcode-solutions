@@ -3,19 +3,18 @@ class Solution:
         sett = set()
         longest = 0
         l = 0
-        n = len(s)
-
-        for r in range(n):
+        
+        for r in range(len(s)):
             while s[r] in sett:
                 sett.discard(s[l])
                 l += 1
             
+            sett.add(s[r])
             length = r - l + 1
             longest = max(length, longest)
-            sett.add(s[r])
-
+            
+        
         return longest
-                    
 
 
         
