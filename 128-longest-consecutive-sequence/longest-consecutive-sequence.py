@@ -7,6 +7,8 @@ class Solution:
                 upper = num + 1
                 while upper in nums:
                     upper += 1
+                
                 best = max(best, upper - num)
+        
         return best
         
