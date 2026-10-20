@@ -5,12 +5,14 @@ class Solution:
         word_map = {}
 
         for word in strs:
-            key = ''.join(sorted(word))
+            key = "".join(sorted(word))
+
             if key not in word_map:
                 word_map[key] = [word]
             else:
                 word_map[key].append(word)
         
         return [value for value in word_map.values()]
+            
 
         
