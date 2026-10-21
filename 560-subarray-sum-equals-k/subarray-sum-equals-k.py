@@ -14,5 +14,4 @@ class Solution:
             else:
                 hash_map[prefix_sum] = 1
         
-        print(hash_map)
         return ans
