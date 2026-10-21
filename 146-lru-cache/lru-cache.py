@@ -2,7 +2,7 @@ class DoublyNode:
     def __init__(self, val=-1,nextt=None, prev=None, key=-1):
         self.val = val
         self.next = nextt
-        self.prec = prev
+        self.prev = prev
         self.key = key
 
 class LRUCache:
