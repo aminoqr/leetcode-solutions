@@ -6,30 +6,36 @@ class Solution:
         ans = []
 
         while low <= high:
-            med = (high + low) // 2
-            if nums[med] == target:
-                split_idx = med
+            mid = (high + low) // 2
+
+            if nums[mid] == target:
+                split_idx = mid
                 break
-            elif nums[med] < target:
-                low = med+1
+            
+            elif nums[mid] < target:
+                low = mid + 1
             else:
-                high = med-1
-        
+                high = mid - 1
+
         if split_idx == -1:
             return [-1, -1]
+
         
         low = 0
         high = split_idx
+
         while low < high:
             mid = (high + low) // 2
             if nums[mid] == target:
                 high = mid
             else:
                 low = mid + 1
+        
         ans.append(low)
 
         low = split_idx
-        high = len(nums)-1
+        high = len(nums) - 1
+
         while low < high:
             mid = (high + low) // 2 + 1
             if nums[mid] == target:
@@ -37,6 +43,6 @@ class Solution:
             else:
                 high = mid - 1
         
-        ans.append(high)
+        ans.append(low)
+
         return ans
-        
