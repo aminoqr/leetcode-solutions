@@ -1,40 +1,29 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
-        answer = []
         nums.sort()
         n = len(nums)
-
-        # '-4' -1 -1 0 1 2 5 6 9 
-
-        for i in range(n):
+        ans = []
+        for i in range(n-2):
             if nums[i] > 0:
                 break
-            if i > 0 and nums[i-1] == nums[i]:
+            if i > 0 and nums[i] == nums[i-1]:
                 continue
-            left, right = i+1, n-1
-
-            while left < right:
-                summ = nums[i] + nums[left] + nums[right]
+            l = i + 1
+            r = n - 1
+            while l < r:
+                summ = nums[i] + nums[l] + nums[r]
 
                 if summ == 0:
-                    answer.append([nums[i], nums[left], nums[right]])
-                    left += 1
-                    right -= 1
-                    while left < right and nums[left - 1] == nums[left]:
-                        left += 1 
-                    while left < right and nums[right + 1] == nums[right]:
-                        right -= 1
-                
+                    ans.append([nums[i], nums[l], nums[r]])
+                    l += 1
+                    r -= 1
+                    while l < r and nums[l] == nums[l-1]:
+                        l+=1
+                    while l < r and nums[r] == nums[r+1]:
+                        r-=1
                 elif summ < 0:
-                    left += 1
+                    l += 1
                 else:
-                    right -= 1
-            
-        return answer
-            
-
+                    r -= 1
         
-
-        
-
-        
+        return ans
